@@ -9,3 +9,5 @@ def print_arguments(*args, **kwargs):
 
 
 print_arguments(1, 2, x=12, y=14, z=['a', 'b', 'c'])
+
+
