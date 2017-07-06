@@ -10,16 +10,16 @@ def wait_until(condition, timeout=10, raise_exception=True, msg=""):
     x=0
     time_base = time.time()
 
-    while time.time()- time_base<10 and condition():
+    while time.time()- time_base<10:
         if condition():
             return True
         else:
             time.sleep(0.1)
 
     if raise_exception:
-            return TimeoutError(f"{arg} after {timeout} sec")
+            return TimeoutError(f" Conditions not after {timeout} sec" + msg)
     else:
-        return True
+        return False
 
 
     """Wait until the condition returned by 'condition' function is fulfilled,
