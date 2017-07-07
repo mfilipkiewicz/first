@@ -6,16 +6,18 @@ def tags(tag):
 
         def wrapper(*args, **kwargs):
             result = fun(*args, **kwargs)
-            return result
+            return f"<{tag}>{result}</{tag}>"
 
         return wrapper
+    return inner_decorator
 
 
+@tags("body")
+@tags("div")
+@tags("span")
 
-#@tags("div")
-#@tags("span")
 
-def print_core_string(name):
-    return "Hello"
+def core_string(name, firstname):
+    return f"Hello {firstname} {name} "
 
-print_core_string
+print(core_string("Marlena", "Filipkiewicz"))
