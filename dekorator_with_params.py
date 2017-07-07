@@ -1,11 +1,15 @@
 
+from functools import wraps
 
 def tags(tag):
 
     def inner_decorator(fun):
 
+        @wraps(fun)
         def wrapper(*args, **kwargs):
+
             result = fun(*args, **kwargs)
+
             return f"<{tag}>{result}</{tag}>"
 
         return wrapper
